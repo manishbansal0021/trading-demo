@@ -1,9 +1,5 @@
 package com.egencia.demo.tradingdemo.model;
 
-import com.egencia.demo.tradingdemo.service.FluxStockSerializer;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import reactor.core.publisher.Flux;
-
 import java.util.List;
 
 public class User {
@@ -11,7 +7,6 @@ public class User {
     String id;
     String name;
     String bankName;
-//    @JsonSerialize(using = FluxStockSerializer.class)
     List<Stock> stocks;
 
     public User(String id, String name, String bankName, List<Stock> stocks) {
@@ -52,11 +47,6 @@ public class User {
     public void setStocks(List<Stock> stocks) {
         this.stocks = stocks;
     }
-
-//    public Flux<User> updateStock(Stock updatedStock) {
-//        User updatedUser = new User(this.id, this.name, this.bankName, Flux.concat(this.stocks, Flux.just(updatedStock)));
-//        return Flux.just(updatedUser);
-//    }
 
     @Override
     public String toString() {
