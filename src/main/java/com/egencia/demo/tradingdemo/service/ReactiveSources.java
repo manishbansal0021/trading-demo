@@ -62,12 +62,12 @@ public class ReactiveSources {
 
     }
 
-    private Stock updateStockPrice(Stock stock) {
+    private Mono<Stock> updateStockPrice(Stock stock) {
 
         Random rand = new Random();
         int newPrice = rand.nextInt((1000 - 100) + 1) + 100;
         stock.setPrice("$"+newPrice);
-        return stock;
+        return Mono.just(stock);
     }
 
 }
